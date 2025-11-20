@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="no">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Dokumentasjon av helpdesk</title>
+  <link rel="stylesheet" href="assets/style/style.css" />
+</head>
+<body>
+  <div id="page-overlay"></div>
+  <div class="header finisher-header" style="width: 100vw; height: 100vh;">
+    <div class="layout">
+      <aside class="sidebar">
+        <h1 class="site-title">X</h1>
+
+        <div class="menu">
+          <div class="menu-section">
+            <button class="menu-toggle"> General information▾</button>
+            <ul class="menu-list">
+              <li><a href="pages/introduction.html" target="contentFrame">Introduksjon til prosjekt</a></li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <button class="menu-toggle">X▾</button>
+            <ul class="menu-list">
+              <li><a href="pages/process.html" target="contentFrame">X</a></li>
+              <li><a href="pages/reflection.html" target="contentFrame">X</a></li>
+            </ul>
+          </div>
+          <div class="menu-section">
+            <button class="menu-toggle">Refleksjon og oppsummering▾</button>
+            <ul class="menu-list">
+              <li><a href="pages/reflection.html" target="contentFrame">X</a></li>
+              <li><a href="pages/summary.html" target="contentFrame">X</a></li>
+            </ul>
+          </div>
+          
+      <div class="sidebar-nav-buttons">
+        <a href="#" class="nav-btn back">← Start</a>
+        <a href="#" class="nav-btn next">→ Neste</a>
+      </div>
+
+      </aside>
+
+      
+      <main class="content">
+        <iframe 
+          name="contentFrame" 
+          src="introduksjon/innhold.html" 
+          style="border: none; width: 100%; height: 100%;"
+        ></iframe>
+      </main>
+    </div>
+  </div>
+
+
+<script src="assets/scripts/finisher-header.es5.min.js"></script>
+<script>
+  // Initialize the background
+  new FinisherHeader({
+    "count": 8,
+    "size": { "min": 605, "max": 1416, "pulse": 0 },
+    "speed": { "x": { "min": 0.01, "max": 0.05 }, "y": { "min": 0.01, "max": 0.05 } },
+    "colors": {
+      "background": "#FFFFFF",
+      "particles": ["#1e82ff", "#3a5f9f", "#607d8b", "#9aaabb"]
+    },
+    "blending": "screen",
+    "opacity": { "center": 0.75, "edge": 0.1 },
+    "skew": 0,
+    "shapes": ["c"]
+  });
+
+  // Toggle sidebar sections
+  document.querySelectorAll('.menu-toggle').forEach(button => {
+    button.addEventListener('click', () => {
+      const list = button.nextElementSibling;
+      list.classList.toggle('closed');
+      button.classList.toggle('closed');
+    });
+  });
+
+  const iframe = document.querySelector('iframe[name="contentFrame"]');
+  
+  // Sidebar links
+  const sidebarLinks = Array.from(document.querySelectorAll('a[target="contentFrame"]'));
+
+  // Full ordered list of pages for Back/Next navigation
+  const pageOrder = [
+    "pages/introduction.html",
+    "pages/process.html",
+    "pages/reflection.html",
+    "pages/summary.html",
+    // add all pages in the exact order you want
+  ];
+
+  function updateActiveLink(href) {
+    // Update sidebar active
+    sidebarLinks.forEach(l => l.classList.remove('active'));
+    const match = document.querySelector(`a[href="${href}"]`);
+    if (match) match.classList.add('active');
+
+    // Save in localStorage
+    localStorage.setItem('activeLink', href);
+
+    // Load page in iframe
+    iframe.src = href;
+  }
+
+  // Sidebar link clicks
+  sidebarLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const href = link.getAttribute('href');
+      updateActiveLink(href);
+    });
+  });
+
+  // Back / Next buttons
+  const backBtn = document.querySelector('.sidebar-nav-buttons .back');
+  const nextBtn = document.querySelector('.sidebar-nav-buttons .next');
+
+  function getCurrentPageIndex() {
+    const src = iframe.src.split('/').slice(-2).join('/');
+    return pageOrder.indexOf(src);
+  }
+
+  backBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const currentIndex = getCurrentPageIndex();
+    if (currentIndex > 0) updateActiveLink(pageOrder[currentIndex - 1]);
+  });
+
+  nextBtn.addEventListener('click', e => {
+    e.preventDefault();
+    const currentIndex = getCurrentPageIndex();
+    if (currentIndex < pageOrder.length - 1) updateActiveLink(pageOrder[currentIndex + 1]);
+  });
+
+  // Restore last active page on load
+  window.addEventListener('DOMContentLoaded', () => {
+    const activeHref = localStorage.getItem('activeLink') || pageOrder[0];
+    updateActiveLink(activeHref);
+  });
+</script>
+</body>
+</html>
