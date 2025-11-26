@@ -278,7 +278,7 @@ p.credit {
 }
 
 
-/* Subtle gray style for "back to home" link */
+
 .back-home {
   display: block;
   padding: 0.5rem 1rem;
@@ -287,14 +287,14 @@ p.credit {
   font-weight: 600;
   text-align: center;
   border-radius: 6px;
-  color: #555555;                 /* medium gray text */
-  background: #f2f2f2;            /* light gray background */
-  border: 1px solid #cccccc;      /* subtle border for depth */
+  color: #555555;                 
+  background: #f2f2f2;            
+  border: 1px solid #cccccc;     
   transition: all 0.25s ease;
 }
 
 .back-home:hover {
-  background: #e0e0e0;           /* slightly darker gray on hover */
-  color: #222222;                /* darker text on hover */
-  transform: translateY(-1px);   /* gentle movement on hover */
+  background: #e0e0e0;        
+  color: #222222;              
+  transform: translateY(-1px);   
 }
