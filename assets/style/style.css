@@ -211,7 +211,7 @@ header {
     padding: 15px 40px;
     font-size: 1.1rem;
     font-weight: 600;
-    background: linear-gradient(135deg, #43a047, #81c784);
+    background: linear-gradient(135deg, #4d8c4a, #7fbf7f);
     color: rgb(41, 39, 39);
     border-radius: 50px;
     text-decoration: none;
@@ -221,7 +221,7 @@ header {
 
 .button:hover {
     transform: translateY(-5px);
-    background: linear-gradient(135deg, #66bb6a, #a5d6a7);
+    background: linear-gradient(135deg, #66aa66, #a2cfa2);
     color: white;
 }
 
