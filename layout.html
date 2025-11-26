@@ -23,15 +23,15 @@
           <div class="menu-section">
             <button class="menu-toggle">X▾</button>
             <ul class="menu-list">
-              <li><a href="pages/process.html" target="contentFrame">X</a></li>
-              <li><a href="pages/reflection.html" target="contentFrame">X</a></li>
+              <li><a href="pages/process.html" target="contentFrame">Prosessen</a></li>
+              <li><a href="pages/influence.html" target="contentFrame">Det som påvirker modellen</a></li>
             </ul>
           </div>
           <div class="menu-section">
             <button class="menu-toggle">Refleksjon og oppsummering▾</button>
             <ul class="menu-list">
-              <li><a href="pages/reflection.html" target="contentFrame">X</a></li>
-              <li><a href="pages/summary.html" target="contentFrame">X</a></li>
+              <li><a href="pages/reflection.html" target="contentFrame">Informasjonssikkerhet og personvern</a></li>
+              <li><a href="pages/summary.html" target="contentFrame">oppsummering</a></li>
             </ul>
           </div>
           
@@ -57,19 +57,21 @@
 <script src="assets/scripts/finisher-header.es5.min.js"></script>
 <script>
   // Initialize the background
-  new FinisherHeader({
-    "count": 8,
-    "size": { "min": 605, "max": 1416, "pulse": 0 },
-    "speed": { "x": { "min": 0.01, "max": 0.05 }, "y": { "min": 0.01, "max": 0.05 } },
-    "colors": {
-      "background": "#FFFFFF",
-      "particles": ["#1e82ff", "#3a5f9f", "#607d8b", "#9aaabb"]
-    },
-    "blending": "screen",
-    "opacity": { "center": 0.75, "edge": 0.1 },
-    "skew": 0,
-    "shapes": ["c"]
-  });
+new FinisherHeader({
+  count: 16,
+  size: { min: 300, max: 1200, pulse: 0 },
+  speed: { x: { min: 0.01, max: 0.03 }, y: { min: 0.01, max: 0.03 } },
+
+  colors: {
+    background: "#08140b",
+    particles: ["#00ff84", "#1aff99", "#4dffb8", "#8dffd5"]
+  },
+
+  blending: "screen",
+  opacity: { center: 0.65, edge: 0.05 },
+  skew: 5,
+  shapes: ["c", "s"]
+});
 
   // Toggle sidebar sections
   document.querySelectorAll('.menu-toggle').forEach(button => {
@@ -89,6 +91,7 @@
   const pageOrder = [
     "pages/introduction.html",
     "pages/process.html",
+    "pages/influence.html",
     "pages/reflection.html",
     "pages/summary.html",
     // add all pages in the exact order you want

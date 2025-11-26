@@ -78,7 +78,7 @@ body {
 
 .menu-list a {
   text-decoration: none;
-  color: #0066cc;
+  color: #388e3c;
   display: block;
   padding: 0.45rem 0.8rem;
   border-radius: 6px;
@@ -87,13 +87,14 @@ body {
 }
 
 .menu-list a:hover {
-  background: #eef5ff;
-  color: #004c99;
+  background: rgba(76, 175, 80, 0.15);
+  color: #2e7d32;
+
 }
 
 .menu-list a.active {
-  background: linear-gradient(135deg, #0077ff, #00aaff);
-  color: #fff;
+  background: linear-gradient(135deg, #43a047, #81c784);
+  color: #ffff;
   font-weight: 550;
 }
 
@@ -108,44 +109,6 @@ body {
   overflow-y: auto;
 }
 
-
-article {
-  width: 100%;
-  max-width:100%;
-}
-
-
-.article-img {
-  max-width: 100%;
-  height: auto;
-  display: block;
-  margin: 1.5rem auto;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25); 
-}
-
-
-article h1 {
-  font-size: 2.1rem;
-  color: #111;
-  margin-top: 0;
-  text-align: center;
-  margin-bottom: 1.2rem;
-  font-weight: 700;
-}
-
-article h2 {
-  color: #222;
-  margin-top: 2rem;
-  border-left: 4px solid #0077ff;
-  padding-left: 0.5rem;
-  font-size: 1.2rem;
-}
-
-article p, article ul {
-  font-size: 1rem;
-  color: #444;
-}
 
 
 header {
@@ -165,41 +128,28 @@ header {
   margin: 1rem 0;
 }
 
-.nav-btn {
-  padding: 0.5rem 1rem;
-  background-color: #1e82ff;
-  color: white;
-  text-decoration: none;
-  border-radius: 4px;
-  text-align: center;
-}
-
-.nav-btn:hover {
-  background-color: #145abf;
-}
-
-
 .nav-btn { 
   text-decoration: none;
-  background: linear-gradient(135deg, #0077ff, #00aaff);
+  background: linear-gradient(135deg, #43a047, #81c784); /* green gradient */
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
   font-weight: 600;
+  text-align: center;
   transition: all 0.25s ease;
 }
 
 .nav-btn:hover {
-  background: linear-gradient(135deg, #005fdd, #0094e6);
+  background: linear-gradient(135deg, #66bb6a, #a5d6a7); /* lighter green on hover */
   transform: translateY(-2px);
 }
 
 .nav-btn.next {
-  background: linear-gradient(135deg, #0077ff, #00aaff);
+  background: linear-gradient(135deg, #43a047, #81c784); /* same as default */
 }
 
 .nav-btn.next:hover {
-  background: linear-gradient(135deg, #005fdd, #0094e6);
+  background: linear-gradient(135deg, #66bb6a, #a5d6a7);
   transform: translateY(-2px);
 }
 
@@ -219,7 +169,7 @@ header {
 }
 
 .source a:hover {
-  color: #0077ff;
+  color: #6cc99e;
   text-decoration: underline;
   transition: color 0.2s ease;
 }
@@ -282,7 +232,7 @@ header {
     padding: 15px 40px;
     font-size: 1.1rem;
     font-weight: 600;
-    background: #005fdd;
+    background: linear-gradient(135deg, #43a047, #81c784);
     color: rgb(41, 39, 39);
     border-radius: 50px;
     text-decoration: none;
@@ -292,7 +242,7 @@ header {
 
 .button:hover {
     transform: translateY(-5px);
-    background:  #0094e6;
+    background: linear-gradient(135deg, #66bb6a, #a5d6a7);
     color: white;
 }
 
@@ -347,3 +297,5 @@ p.credit {
     margin-top: 40px;
     font-size: 0.9rem;
 }
+
+
