@@ -1,7 +1,7 @@
 
 body {
   margin: 0;
-  font-family: "Inter", "Helvetica Neue", Arial, sans-serif;
+  font-family: "Georgia", "Times New Roman", serif;
   color: #2b2b2b;
   background: #f9fafc;
   line-height: 1.6;
@@ -130,7 +130,7 @@ header {
 
 .nav-btn { 
   text-decoration: none;
-  background: linear-gradient(135deg, #43a047, #81c784); /* green gradient */
+  background: linear-gradient(135deg, #43a047, #81c784); 
   color: white;
   padding: 0.6rem 1.2rem;
   border-radius: 6px;
@@ -140,38 +140,17 @@ header {
 }
 
 .nav-btn:hover {
-  background: linear-gradient(135deg, #66bb6a, #a5d6a7); /* lighter green on hover */
+  background: linear-gradient(135deg, #66bb6a, #a5d6a7); 
   transform: translateY(-2px);
 }
 
 .nav-btn.next {
-  background: linear-gradient(135deg, #43a047, #81c784); /* same as default */
+  background: linear-gradient(135deg, #43a047, #81c784); 
 }
 
 .nav-btn.next:hover {
   background: linear-gradient(135deg, #66bb6a, #a5d6a7);
   transform: translateY(-2px);
-}
-
-
-.source {
-  font-size: 0.85rem;
-  color: #777;
-  text-align: right;
-  margin-top: -0.5rem;
-  margin-bottom: 1.2rem;
-}
-
-.source a {
-  color: inherit;
-  text-decoration: none;
-  font-weight: 500;
-}
-
-.source a:hover {
-  color: #6cc99e;
-  text-decoration: underline;
-  transition: color 0.2s ease;
 }
 
 #page-overlay {
@@ -202,7 +181,7 @@ header {
     justify-content: center;        
     align-items: center;            
     text-align: center;
-    padding: 20px;                   /* just small padding for mobile */
+    padding: 20px;                  
     box-sizing: border-box;          /* ensures padding doesn’t break centering */
 }
 
@@ -299,3 +278,23 @@ p.credit {
 }
 
 
+/* Subtle gray style for "back to home" link */
+.back-home {
+  display: block;
+  padding: 0.5rem 1rem;
+  margin-bottom: 1rem;
+  text-decoration: none;
+  font-weight: 600;
+  text-align: center;
+  border-radius: 6px;
+  color: #555555;                 /* medium gray text */
+  background: #f2f2f2;            /* light gray background */
+  border: 1px solid #cccccc;      /* subtle border for depth */
+  transition: all 0.25s ease;
+}
+
+.back-home:hover {
+  background: #e0e0e0;           /* slightly darker gray on hover */
+  color: #222222;                /* darker text on hover */
+  transform: translateY(-1px);   /* gentle movement on hover */
+}
