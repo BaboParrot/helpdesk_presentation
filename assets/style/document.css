@@ -89,7 +89,8 @@ code, pre {
     background: #e0e4e0;
     padding: 5px 8px;
     border-radius: 5px;
-    font-family: "Courier New", monospace;
+    font-family: Inter, "Segoe UI", Ubuntu, "Helvetica Neue", monospace;
+    line-height: 1.6;
 }
 
 video {

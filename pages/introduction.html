@@ -9,10 +9,15 @@
         <article>
             <h1>Introduksjon til prosjekt</h1>
             <h2>Forklaring av prosjektet</h2>
-            <p>Dette prosjektet går ut over å installere og konfigurere en Large Language Model (LLM)
-                ved hjelp av ollama og så gjøre modellen brukelig igjennom Open WebUI. Hele prosjektet kjører i en Docker-container og er derfor lett å sette opp systemet. </p>
+            <p>Prosjektet går ut på å sette opp en lokal språkmodell ved hjelp av Ollama, og gjøre den tilgjengelig gjennom Open WebUI. 
+                Ollama kjører modellen lokalt i Windows, mens WebUI kjører i en Docker-container med støtte for Retrieval-Augmented Generation (RAG).
+                Dette gir en enkel løsning som fungerer helt uten skytilkobling, som vil si at man kan bruke systemet helt uten internettilgang.  </p>
            
             <h2>Discord helpdesk</h2>
+             <p> Helpdesken er laget for å svare på spørsmål knyttet rundt og til Discord. Den er laget for de som lurer på hvordan man bruker applikasjonen til ting som å lage servere, brukere og hva ting er. 
+                Løsningen bruker en egen kunnskapsbase gjennom RAG, som består av to pdfer med relevant informasjon om discord. 
+                Informasjonen er delt opp sånn at et dokument fokuserer mer på hvordan man lager en server, i mens den andre er på å sette opp brukere, navigasjon og notifikasjoner.
+                Dette gjør at modellen kan gi bedre og mer relevante svar, siden modellen ikke er en stor en. </p>
         </article>
     </main>
 </body>
