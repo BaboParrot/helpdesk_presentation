@@ -1,3 +1,7 @@
+body {
+    font-family: Inter, "Segoe UI", Ubuntu, "Helvetica Neue", Arial, sans-serif;
+}
+
 .content {
   flex: 1;
   padding: 3rem 4rem;
@@ -14,33 +18,34 @@ article {
 }
 
 h1, h2, h3, h4 {
-    font-family: "Georgia", "Times New Roman", serif;
     font-weight: 600;
     color: #113311;  
     margin-top: 40px;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
 }
 
 h1 {
-    font-size: 2.2rem;
+    font-size: 2.6rem;
     border-bottom: 2px solid #cfd9cf;
     padding-bottom: 10px;
 }
 
 h2 {
-    font-size: 1.5rem;
+    font-size: 2rem;
     border-left: 4px solid #76c276;
     padding-left: 12px;
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.7rem;
     color: #224422;
 }
 
 
 p {
-    margin: 20px 0;
+    margin: 22px 0;
+    font-size: 1.125rem;   
+    line-height: 1.6;
 }
 
 
