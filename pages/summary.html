@@ -9,32 +9,72 @@
         <article>
             <h1>Oppsumering for prosjektet</h1>
             <section>
-                <h2>Hva har --</h2>
-                <p>yo gurt yo yo </p>
-                <p>yes yes yes skibidi ya ya ay</p>
-                <p>lipsum boredom</p>
+            <p>
+                I dette prosjektet laget jeg en lokal AI-basert helpdesk for Discord, der målet var å teste hvordan en LLM kan gi faktabaserte svar fra en knowledge base. Jeg brukte Ollama og Open WebUI med RAG, sånn at modellen bare skulle hente informasjon fra PDF-ene jeg lastet inn. 
+            </p>
+
+            <p>
+                Jeg eksperimenterte med parametere som temperatur, maxtokens, Top-K og Top-P. Det gjorde det tydelig hvordan parameterne påvirket hvor detaljerte, kreativt eller presist svarene ble. Testingen viste også at RAG gjorde svarene mye mer nøyaktige, siden modellen jeg brukte er ganske liten. 
+            </p>
+
+            <p>
+                Når det gjelder ytelse, fungerte systemet greit på maskinen min for størrelsen av prosjektet. Det eneste var at jeg fikk en litt treg responstid. Jeg jobbet også en del med sikkerhet, og sørget for at alt kjørte lokalt sånn at ingen data ble delt, og at modellen hadde fallback-svar når den ikke fant informasjonen jeg spurte om. 
+            </p>
+
+            <p>
+                Alt i alt har jeg lært mye om hvordan både lokale og skybaserte LLM-er fungerer, hvordan systemprompt, RAG og parameterne påvirker kvaliteten på svarene. Man ser at et godt systemoppsett er viktig når man planlegger å bruke AI som et verktøy.
+            </p>
             </section>
             <section>
                 <h2>Kilder</h2>
                 <ul>
+
                     <li>
-                        Microsoft. (2025). <em>Hyper-V informasjon</em>. Microsoft Learn. Tatt fra:
-                        <a href="https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview" target="_blank">
-                            https://learn.microsoft.com/en-us/windows-server/virtualization/hyper-v/overview
-                        </a>  
-                        <br><small>Brukt på siden <strong>Introduksjon til prosjektet</strong> for informasjon om hvordan Hyper-V fungerer.</small>
+                    Utah State Library. (u.å.). <em>Discord Toolkit</em>. Tatt fra:
+                    <a href="https://library.utah.gov/wp-content/uploads/Discord-Toolkit.pdf" target="_blank">
+                        https://library.utah.gov/wp-content/uploads/Discord-Toolkit.pdf
+                    </a>
+                    <br><small>Brukt som grunnlag for informasjon om Discord-funksjoner i knowledge basen.</small>
                     </li>
-                <br>
-                <li>
-                    Canonical Ltd. (2025). <em>Ubuntu Server informasjon</em>. Ubuntu. Tatt fra:
-                        <a href="https://ubuntu.com/server" target="_blank">
-                             https://ubuntu.com/server
-                        </a>  
-                        <br><small>Brukt på siden <strong>Introduksjon til prosjektet</strong> for informasjon om hvordan Ubuntu fungerer.</small>
-                </li>
-                <br>
+                    <br>
+
+                    <li>
+                    MIT. (2020). <em>Discord Manual</em>. Tatt fra:
+                    <a href="https://bpb-us-e1.wpmucdn.com/sites.mit.edu/dist/1/1946/files/2020/09/Discord-Manual-.pdf" target="_blank">
+                        https://bpb-us-e1.wpmucdn.com/sites.mit.edu/dist/1/1946/files/2020/09/Discord-Manual-.pdf
+                    </a>
+                    <br><small>Brukt som kilde i knowledge basen for detaljer om serverinnstillinger og Discord-bruk.</small>
+                    </li>
+                    <br>
+
+                    <li>
+                    Microsoft. (2025). <em>RAG: Preparation phase</em>. Microsoft Learn. Tatt fra:
+                    <a href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-preparation-phase" target="_blank">
+                        https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-preparation-phase
+                    </a>  
+                    <br><small>Brukt for informasjon om hvordan RAG fungerer.</small>
+                    </li>
+                    <br>
+
+                    <li>
+                    Microsoft. (2025). <em>RAG: Chunking phase</em>. Microsoft Learn. Tatt fra:
+                    <a href="https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-chunking-phase" target="_blank">
+                        https://learn.microsoft.com/en-us/azure/architecture/ai-ml/guide/rag/rag-chunking-phase
+                    </a>  
+                    <br><small>Brukt for informasjon om hvordan chunking påvirker RAG.</small>
+                    </li>
+                    <br>
+
+                    <li>
+                    Codefinity. (2023). <em>Understanding Temperature, Top-k, and Top-p Sampling in Generative Models</em>. Codefinity Blog. Tatt fra:
+                    <a href="https://codefinity.com/blog/Understanding-Temperature%2C-Top-k%2C-and-Top-p-Sampling-in-Generative-Models" target="_blank">
+                        https://codefinity.com/blog/Understanding-Temperature%2C-Top-k%2C-and-Top-p-Sampling-in-Generative-Models
+                    </a>  
+                    <br><small>Brukt for informasjon om hvordan temperatur, Top-K og Top-P påvirker modeller.</small>
+                    </li>
                 </ul>
             </section>
+
             <p class="source">Nettsiden er laget av Nathalie K.S, 2025</p>
         </article>
     </main>

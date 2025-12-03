@@ -9,7 +9,8 @@
         <article>
             <h1>Det som påvirker modellen</h1>
 
-            <h2>Systemprompten</h2>
+           <section>
+             <h2>Systemprompten</h2>
             <pre><code>
     You are a helpful Discord helpdesk for the school's gaming club.
 
@@ -60,38 +61,30 @@
 
     discord-manual.pdf – account setup, navigation, roles, notifications, productive use
                 </code></pre>
+                <p>Det som er fint med denne systemprompten er at hvis retriever ikke finner relevant informasjon, returneres en standardmelding som sier så istedet for å hallusinere. Den forklarer også kort hva som er i hver PDF, sånn at det er lettere for modellen å finne informasjonen den trenger. Den har også kildehenvisning sånn at man ser hvilke dokumenter den bruker til å finne informasjon. </p>
+                <br>
+              </section>
 
- <h2>Hvordan jeg brukte RAG (knowledge base)</h2>
-<p>
-RAG (Retrieval-Augmented Generation) brukes for å gi modellen faktabasert kontekst fra dokumenter i kunnskapsbasen før generering. 
-I dette prosjektet består knowledge base av PDF-er som er lastet opp og indeksert i Open WebUI. Målet er at modellen bare skal svare ut fra disse kildene.
-</p>
+              <section>
+                  <h2>Hvordan jeg brukte RAG (knowledge base)</h2>
 
-<ul>
-  <li><strong>Organisering:</strong> PDF-ene ligger i mappen <code>knowledge_base/discord/</code> og er navngitt med korte, søkbare filnavn, f.eks. <code>creating+a+discord+server.pdf</code> og <code>discord-manual.pdf</code>.</li>
-  <li><strong>Indeksering:</strong> I Open WebUI lastet jeg opp PDF-ene og kjørte indeksering (chunking) slik at retrieveren kan hente relevante utdrag. Chunk-størrelse settes til et nivå som bevarer setninger (f.eks. 500–1000 tokens per chunk avhengig av verktøy).</li>
-  <li><strong>Retriever-policy:</strong> Retrieveren er konfigurert til å returnere de 3–5 beste treffene for hver brukerforespørsel. Treffene pre-pend'es til systemprompten før LLM-kallet.</li>
-  <li><strong>Kildehenvisning:</strong> Når et utdrag brukes i svaret, tvinger systemprompten modellen til å referere til filnavnet, f.eks. <code>[creating+a+discord+server.pdf]</code>, slik at brukeren lett kan verifisere informasjonen.</li>
-  <li><strong>Fallback:</strong> Hvis retriever ikke finner relevant informasjon, returneres en standardmelding: 
-    <em>"Jeg er ikke helt sikker, men jeg anbefaler å sjekke Discords hjelpesider eller spørre en serveradmin."</em>
-  </li>
-</ul>
+                  <p>
+                    RAG (Retrieval-Augmented Generation) brukes for å gi modellen faktabasert kontekst og relevant informasjon fra dokumenter før generering. Det vil si at modellen ikke bare bruker egen treningsdata, men også får utdrag fra PDF-ene jeg har lagt inn i knowledge basen.
+                  </p>
 
-<p><strong>Praktisk testing du bør gjøre:</strong></p>
-<ol>
-  <li>Spørsmål som klart finnes i én PDF (f.eks. "Hvordan lager jeg en rolle?") — bekreft at modellen svarer og refererer til riktig PDF.</li>
-  <li>Spørsmål som krever syntese fra flere dokumenter — sjekk at modellen bruker flere utdrag uten å oppfinne fakta.</li>
-  <li>Utenfor-omfang-spørsmål — sjekk at fallback-svaret aktiveres når ingen treff finnes.</li>
-</ol>
-
-<p><strong>Skjermbilder å ta:</strong> last-opp-visning av PDF-er i WebUI, eksempler på hentede utdrag, og et fullstendig svar som viser PDF-referanse.</p>
-
-<h2>Eksperimenteringen på parameterene</h2>
-<p>
-Under testing justerte jeg sentrale parametere for å finne en god balanse mellom presisjon og brukervennlighet for en helpdesk-rolle.
-Nedenfor er anbefalte verdier og observerte effekter.
-</p>
-
+                  <p>
+                    I dette prosjektet består knowledge base av PDF-er som er lastet opp og indeksert i Open WebUI. Målet er at modellen bare skal svare ut fra disse kildene. Systemet analyserer dokumentene, lager embeddings og henter så ut de mest relevante delene etter et spørsmål.
+                  </p>
+                  <img src="/assets/bilder/Knowledge base.png" alt="knowledge base">
+                  <br>
+                </section>
+                <section>     
+                  <h2>Eksperimenteringen på parameterene</h2>
+                  <p>
+                  Under testing justerte jeg sentrale parametere for å finne en god balanse mellom presisjon og brukervennlighet for en helpdesk-rolle.
+                  Nedenfor er anbefalte verdier og observerte effekter.
+                  </p>
+                </section>
         </article>
     </main>
 </body>

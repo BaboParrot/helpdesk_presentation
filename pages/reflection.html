@@ -8,16 +8,51 @@
     <main class ="content">
         <article>
             <h1>Refleksjon av prosjektet</h1>
-            <p>yo gurt!</p>
 
-            <h2>Forskjellen på lokal og skybaserte LLMs</h2>
+            <section>
+                <h2>Forskjellen på lokal og skybasert LLM</h2>
+
+                <h3>Lokal LLM</h3>
+                <p>
+                Lokale LLMs kjører rett på PC-en med CPU og GPU. Man laster ned modellen selv og kjører den lokalt, for eksempel med Ollama som jeg har brukt. Dataen blir på maskinen, så informasjonen er trygg og for deg selv. De som bruker lokale LLMs trenger å ha litt kraftig maskinvare og teknisk kunnskap. Fordelen er at man får full kontroll over den, og at det funker uten internett. Ulempen er at det er tungt for maskinen å kjøre og tar mye cpu og gpu.
+                </p>
+
+                <h3>Skybasert LLM</h3>
+                <p>
+                Skybaserte LLMs på den andre siden kjører på servere på internettet. For eksempel som hos OpenAI. Man får tilgang via nettleseren eller API, og trenger ofte å lage en konto for å bruke det. Dataen sendes til serverene, så man har mye mindre kontroll på personvernet. Ikke alle har kraftig maskinvare til å kjøre lokale llms, og de som er skybaserte er ofte raske og holder seg oppdatert. Det negative er at det krever internett, vil sannsynligvis koste mye penger i framtiden, og man har ikke kontroll på hvor dataen går.
+                </p>
+                <br>
+            </section>
 
 
-            <h2>Hvordan RAG påvirker kvaliteten på svarene</h2>
+             <section>
+                <h2>Hvordan RAG påvirker kvaliteten på svarene</h2>
 
+                <p>
+                I stedet for å bruke informasjonen modellen har fått fra treningen, får jeg den til å hente informasjon fra dokumentene i knowledge basen. Dette er noe som har gjort at svarene har blitt mye mer nøyaktig, og ikke hallusinerer like mye. Det er fordi modellen jeg bruker er litt liten, så den hadde ikke fått mye trening på den informasjonen hjelpteksten handler om.
+                </p>
 
-            <h2>Min erfaring</h2>
-            <p>blehh liker ikke ki, kjedelig prosjekt!</p>
+                <p>
+                Uten RAG merket jeg at svarene jeg fikk ble veldig generelle, serlig når jeg spurte om konkret informasjon. Når jeg så tokk på RAG så la jeg spesielt merke til hvor mye mer konkret og relevant svarene ble for nøyaktig det jeg lurte på. Dette er som sagt på grunn av at den har tilgang til bra dokumenter som svarer på det meste rundt Discord.
+                </p>
+                <br>
+            </section>
+
+              <section>
+                <h2>Min erfaring med å jobbe med AI som verktøy</h2>
+
+                <p>
+                Det å jobbe med AI i dette prosjektet har gitt meg innsikt i hvordan de lokale LLMs fungerer og hva de er gode til. Det er også kult å se hvor lett ting er å sette opp hvis man har litt digitale ferdigheter. Siden jeg brukte en litt liten modell har jeg også lært at det å ha en kraftig modell kanskje ikke er det viktigste, men heller hvordan man setter opp systemet, organiserer knowledge basen, parametere og systemprompten.
+                </p>
+
+                <p>
+                Jeg har lært mye om hvordan små endringer med parameterene kan føre til ganske ulike svar, og gjør at jeg blir nysgjerrig på hvordan de større LLM-ene er konfigurert parametermessig. Jeg føler også at jeg har lært mye generelt om hvordan AI oppfører seg og hvordan RAG spiller i det.
+                </p>
+
+                <p>
+                Alt i alt vil jeg si at prosjektet har gitt meg en større forståelse på mulighetene og begrensninger ved AI. Jeg har lært litt mer i hvordan jeg burde bruke AI som et verktøy til å løse oppgaver, og at dette er mulig å gjøre imens man tar hensikt til sikkerhet, personvern og etikk.
+                </p>
+            </section>
         </article>
     </main>
 </body>

@@ -8,12 +8,29 @@
     <main class ="content">
         <article>
             <h1>Sikkerhet og etikk</h1>
+            <section>
+                <h2>Datasikkerhet og personvern</h2>
+                <p>
+                    Siden modellen blir kjørt lokalt på maskinen så blir ikke dataen min delt i eksterne servere. Det at modellen er lokal, gjør at det er en høy grad av personvern og sikkerhet enn hvis den var skybasert.
+                </p>
+            </section>
 
-            <h2>Datasikkerhet og personvern</h2>
+            <section>
+                <h2>Risikoene med feil eller utdatert kunnskapsgrunnlag</h2>
+                <p>
+                    Det som er risikoen med kunnskapsgrunnlag er at hvis informasjonen i dokumentene er feile eller utdatert, vil modellen gi feil svar til spørsmål. Dette kan føre til å spre falsk informasjon hvis brukeren bare følger rådene fra modellen ukritisk. Derfor har jeg lest igjennom og sett at informasjonen i PDF-ene i knowledge basen har rett informasjon.
+                </p>
+            </section>
 
-            <h2>Risikoene med feil eller utdatert kunnskapsgrunnlag</h2>
-
-            <h2>Hvordan jeg har forsøkt å gjøre min lokale LLMs tryggere for brukere</h2>
+            <section>
+                <h2>Hvordan jeg har forsøkt å gjøre min lokale LLMs tryggere for brukere</h2>
+                <p>
+                    Som nevnt tidligere, har jeg lest igjennom dokumentene som modellen min bruker til å hente informasjon fra, og sjekket at informasjonen er rett. Jeg har også gitt modellen en klar instruksjon på å aldri finne på fakta ordnet en fallback svar hvis den ikke vet noe om spørsmålet og sjekket om den hører på instruksjoner og informasjon gitt.
+                </p>
+                <p>
+                    I systempromptet har modellen også fått beskjed om å alltid være høflig, og aldri dele sensitiv informasjon. Chunk size er også blitt endret på fra 1000 til 2000 token. Dette reduserer risikoen for at modellen gir unødvendig kompliserte eller feilaktige svar.
+                </p>
+            </section>
         </article>
     </main>
 </body>
