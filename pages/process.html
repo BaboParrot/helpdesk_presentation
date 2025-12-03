@@ -7,14 +7,118 @@
 <body>
     <main class ="content">
         <article>
-            <video controls width="600">
-                <source src="/assets/videos/Nonsense_prompt.mp4" type="video/mp4">
-            </video>
-            <h1>hello</h1>
-            <h2>hello</h2>
-            <h3>hello</h3>
-            <p>hello</p>
-        </article>
+            <h1>Teknisk oppsett av prosjekt</h1>
+              <h3>Maskinvare</h3>
+            <table border="1">
+                <thead>
+                    <tr>
+                        <th>Komponent</th>
+                        <th>Spesifikasjoner</th>
+                        <th>Vurdering av egnethet</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>GPU</td>
+                        <td>Intel UHD Graphics 750, 2 GB videominne, 7.9 GB systemminne</td>
+                        <td>Funker bra til skolearbeid, men helst ikke tunge spill eller 3D-enheter. 2 GB videominne er ganske lite for denne oppgaven.</td>
+                    </tr>
+                    <tr>
+                        <td>CPU</td>
+                        <td>Intel Core i9-11900K @ 3.5 GHz (8 kjerner, 16 tråder)</td>
+                        <td>Ganske bra. Vil fungere bra til skolearbeid og vil kunne gjennomføre dette prosjektet fint.</td>
+                    </tr>
+                    <tr>
+                        <td>RAM</td>
+                        <td>16 GB DDR4 RAM (15.8 GB brukbart)</td>
+                        <td>Er bra men kunne vært bedre (32 GB). Vil funke.</td>
+                    </tr>
+                    <tr>
+                        <td>HDD/SSD</td>
+                        <td>SSD-disk og HDD</td>
+                        <td>Fungerer bra.</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Programvarene</h3>
+            <p>For å få alt til å funke brukte jeg disse programmene:</p>
+            <ul>
+                <li><strong>Ollama:</strong> Dette er hva som kjører modellen lokalt på PC-en.</li>
+                <img src="/assets/bilder/prosess/ollama.png" alt="ollama">
+                <br>
+                
+                <li><strong>Docker:</strong> Docker bruker jeg for å kjøre Open WebUI i en container. Det gjør oppsettet ryddig og lett å starte opp.</li>
+                <img src="/assets/bilder/prosess/docker.png" alt="docker">
+                <br>
+
+                <li><strong>Open WebUI:</strong> Dette er grensesnittet jeg bruker for å snakke med modellen. </li>
+                <img src="/assets/bilder/prosess/Open WebUI.png" alt="Open WebUI">
+            </ul>
+
+            <h3>Systemoppsettet</h3>
+            <p>Oppsettet i prosjektet er ganske enkelt, men samtidig ganske spennende:</p>
+            <ul>
+                <li>Modellen kjører helt lokalt på maskinen min, så alt er trygt og ingen data forsvinner ut på nettet.</li>
+                <li>Jeg bruker <strong>RAG</strong> (Retrieval-Augmented Generation) for å hente informasjon fra knowledge base, altså PDF-ene jeg har lagt inn. Det gjør at modellen faktisk svarer riktig og hallusinerer mindre.</li>
+                <li><strong>Open WebUI</strong> er grensesnittet hvor jeg kan skrive spørsmålene og få svar fra modellen.</li>
+            </ul>
+            <br>
+           <section>
+             <h2>Systemprompten</h2>
+            <pre><code>
+    You are a helpful Discord helpdesk for the school's gaming club.
+
+    You assist users with questions related to all things Discord: accounts, server setup, roles, channels, bots, and security.
+
+    You must:
+
+    Use only information extracted from the PDFs in the knowledge base.
+
+    Do not rely on prior training or external knowledge.
+
+    Always translate information taken from English documents into English and always answer in English.
+
+    Use a formal, professional, and simple language, while explaining things so users understand.
+
+    Be polite, helpful and confident in your communication.
+
+    Emphasize ethics, security and responsibility in all advice.
+
+    Never share sensitive information, passwords, or security keys.
+
+    Explain step-by-step procedures when the user asks how to do something.
+
+    Never invent information, and be explicit when you are making an assumption.
+
+    Encourage safe use of Discord and respectful behaviour in conversations.
+
+    If you do not know the answer, say:
+    "I am not entirely sure, but I recommend checking Discord's help pages or asking a server admin."
+
+    Clearly reference the PDF as the source when relevant, for example: [creating+a+discord+server.pdf].
+
+    Core values for all replies:
+
+    Clarity
+
+    Accuracy
+
+    Safety
+
+    Respect
+
+    Helpfulness
+
+    Knowledge base (PDFs):
+
+    creating+a+discord+server.pdf – creating a server, channels, roles, inviting members
+
+    discord-manual.pdf – account setup, navigation, roles, notifications, productive use
+                </code></pre>
+                <p>Det som er fint med denne systemprompten er at hvis retriever ikke finner relevant informasjon, returneres en standardmelding som sier så istedet for å hallusinere. Den forklarer også kort hva som er i hver PDF, sånn at det er lettere for modellen å finne informasjonen den trenger. Den har også kildehenvisning sånn at man ser hvilke dokumenter den bruker til å finne informasjon. </p>
+                <br>
+              </section>
     </main>
 </body>
 </html>

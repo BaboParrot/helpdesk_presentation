@@ -7,10 +7,30 @@
 <body>
     <main class ="content">
         <article>
+            <section>
             <h1>Utfordringer og problemløsning</h1>
+
+            <h2>Hallusinasjon hos botten</h2>
+            <p>
+                Et problem jeg hadde var at botten likte å hallusinere. Dette fikset jeg med å gi den strengere beskjeder i systemprompt og holde RAG-størrelsen minimal. 
+                Den hallusinerte mye mindre når jeg gikk fra 5 dokumenter til 2.
+            </p>
+            <br>
+
             <h2>Installasjonsfeiler</h2>
+            <p>
+                Under prosjektet lastet jeg ned 2 forskjellige modeller. Først lastet ned en modell som ble tenkt at den var litt for heftig for maskinen min (llama 3.1 8b). 
+                Derfor lastet jeg også ned llama 3.2 1b, men fant fort ut at den ikke var sterk nok til prosjektet. Bortsett fra det, har jeg ikke lastet ned noe unødvendig eller feil.
+            </p>
+            <br>
+
             <h2>RAG som gir dårlig treff</h2>
-            <h2>Justering av konfigurasjon</h2>
+            <p>
+                I starten når jeg hadde rundt 5 dokumenter, hentet modellen mye feil informasjon. Den skrev ting forvirrende, og glemte å skrive det viktige innholdet. 
+                Jeg fant fort ut at det var fordi 2 av dokumentene hadde alt for mye instruktsjoner som skjedde på bilder, så modellen kunne ikke se informasjonen. 
+                Derfor fikk den også mye bedre treff når jeg gikk ned til 2 bra PDF-er. Den ga også dårlig treff i starten på grunn av feil chunk size (1000). 2000 er mye bedre for å få bra og rett informasjon.
+            </p>
+            </section>
         </article>
     </main>
 </body>

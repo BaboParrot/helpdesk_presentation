@@ -8,10 +8,34 @@
     <main class ="content">
         <article>
             <h1>Ytelse og testing av KI</h1>
+            <h2>Chunk size og faktorer som påvirker</h2>
+            <p>
+                For å få de beste svarene har jeg eksprimentert med chunk size ved indeksing av dokumentene i knowledge basen. 
+                Det er hva som bestemmer hvor store tekstbiter modellen ser på om gangen når den henter informasjon. 
+                I dette prosjektet kom jeg fram til at en mellomstor chunk size på 2000 passet svært godt, siden det gir en god balanse mellom presisjon og rask responstid.
+            </p>
+            <br>
 
-            <h2>Hvordan modellen presterte</h2>
-            <h2>Responstid</h2>
-            <h2>Hvor mye ram og cpu som ble brukt</h2>
+            <section>
+                <h2>Hvordan modellen presterte</h2>
+                <h3>Responstid</h3>
+                <p>
+                    Når jeg testet modellen, var responstiden på rundt 30 sekunder per forespørsel, både med og uten knowledge basen. 
+                    Det er mest sannsynligvis på grunn av en blanding av flere ting som chunk size og maskinvaren til maskinen. 
+                    Jeg hadde en veldig begrenset GPU-kapasitet og bare 16gb systemminne. 
+                    Modellen jeg bruker i prosjektet (llama 3.1 8b) er også ikke laget for kompliserte oppgaver.
+                </p>
+
+                <h3>Hvor mye RAM og CPU som ble brukt</h3>
+                <p>
+                    Under generering, lå svar på CPU-belastningen mellom 70-95%. 
+                    Dette er på grunn av at lokale LLM-modeller er prosessorkrevende uten GPU-støtte, så dette er som forventet. 
+                    RAM bruk lå på rundt 6 GB for modellen alene, som blir til 10 GB med bruk av RAG i Open WebUI. 
+                    Dette er på grunn av blant annet dokumentindeksering og embedding. 
+                    For å ikke sette for mye press på modellen, valgte jeg å bare bruke 2 dokumenter. 
+                    16 GB var nok til å gjennomføre prosjektet, men man ser at 32 hadde gitt en mye bedre ytelse og bedre svar.
+                </p>
+             </section>
         </article>
     </main>
 </body>

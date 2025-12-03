@@ -8,63 +8,6 @@
     <main class ="content">
         <article>
             <h1>Det som påvirker modellen</h1>
-
-           <section>
-             <h2>Systemprompten</h2>
-            <pre><code>
-    You are a helpful Discord helpdesk for the school's gaming club.
-
-    You assist users with questions related to all things Discord: accounts, server setup, roles, channels, bots, and security.
-
-    You must:
-
-    Use only information extracted from the PDFs in the knowledge base.
-
-    Do not rely on prior training or external knowledge.
-
-    Always translate information taken from English documents into English and always answer in English.
-
-    Use a formal, professional, and simple language, while explaining things so users understand.
-
-    Be polite, helpful and confident in your communication.
-
-    Emphasize ethics, security and responsibility in all advice.
-
-    Never share sensitive information, passwords, or security keys.
-
-    Explain step-by-step procedures when the user asks how to do something.
-
-    Never invent information, and be explicit when you are making an assumption.
-
-    Encourage safe use of Discord and respectful behaviour in conversations.
-
-    If you do not know the answer, say:
-    "I am not entirely sure, but I recommend checking Discord's help pages or asking a server admin."
-
-    Clearly reference the PDF as the source when relevant, for example: [creating+a+discord+server.pdf].
-
-    Core values for all replies:
-
-    Clarity
-
-    Accuracy
-
-    Safety
-
-    Respect
-
-    Helpfulness
-
-    Knowledge base (PDFs):
-
-    creating+a+discord+server.pdf – creating a server, channels, roles, inviting members
-
-    discord-manual.pdf – account setup, navigation, roles, notifications, productive use
-                </code></pre>
-                <p>Det som er fint med denne systemprompten er at hvis retriever ikke finner relevant informasjon, returneres en standardmelding som sier så istedet for å hallusinere. Den forklarer også kort hva som er i hver PDF, sånn at det er lettere for modellen å finne informasjonen den trenger. Den har også kildehenvisning sånn at man ser hvilke dokumenter den bruker til å finne informasjon. </p>
-                <br>
-              </section>
-
               <section>
                   <h2>Hvordan jeg brukte RAG (knowledge base)</h2>
 
@@ -79,12 +22,82 @@
                   <br>
                 </section>
                 <section>     
-                  <h2>Eksperimenteringen på parameterene</h2>
-                  <p>
-                  Under testing justerte jeg sentrale parametere for å finne en god balanse mellom presisjon og brukervennlighet for en helpdesk-rolle.
-                  Nedenfor er anbefalte verdier og observerte effekter.
-                  </p>
-                </section>
+                  <h2>Eksperimenteringen</h2>
+
+                  <section>
+                      <h3>Test 1: Denne sjekker “Creating+a+discord+server”</h3>
+                      <p>Her ser vi at modellen leser fra systemprompten om at informasjonen ligger i “creating+a+discord+server.pdf”, siden det er spesifisert at den vil lett kunne finne informasjon om det i den.</p>
+                      <img src="/assets/bilder/testing correct info/prompt.png" alt="testing prompt">
+                      <img src="/assets/bilder/testing correct info/source3.png" alt="">
+                      <br>
+
+                      <h3>Test 2: Denne sjekker “Discord-Manual-”</h3>
+                      <p>Lik som den første testen, spør jeg om noe spesifikt jeg vet står i det andre dokumentet. Den har fått klar beskjed å se her hvis den får spørsmål rundt det temaet, så vi ser at den oppfører seg som den skal og henter rett informasjon.</p>
+                      <img src="/assets/bilder/testing correct info/test2 prompt.png" alt="testing prompt 2">
+                      <img src="/assets/bilder/testing correct info/test2 source.png" alt="testing source 2">
+                      <br>
+
+                      <h3>Med og uten RAG test</h3>
+                      <p>For å se om den bruker RAG, testet jeg med å ta rag av og på. Vi ser at når den ikke har et RAG eller systemprompt, har den nesten ikke informasjon på det. Dette er blant annet fordi llama modellen er liten. I motsetning til det, så er den med RAG og systemprompt mye mer utfyllende, selv om svaret er rart. Dette er fordi jeg fikk den til å snakke på norsk selv om modellen er dårlig på norsk, og dokumentene er på engelsk.</p>
+                      <p>Utenfor-omfang-spørsmål — sjekk at fallback-svaret aktiveres når ingen treff finnes.</p>
+                      <p>På grunn av system prompten har modellen fått klar beskjed om å ikke bruke informasjon som ikke kommer fra RAG, og ikke finne på informasjon. Vi ser derfor at spørsmålet om hvordan å tjene penger utløser fallback svaret.</p>
+                      <br>
+
+                      <img src="/assets/bilder/uten og med knowledge/uten rag.png" alt="uten knowledge">
+                      <p>Dette er svaret uten knowledge.</p>
+                      <br>
+                      <img src="/assets/bilder/uten og med knowledge/med knowledge.png" alt="med knowledge">
+                      <p>Dette er hvordan svaret ser ut med knowledge basen.</p>
+                      <br>
+
+                      <h3>Fallback-svar ved manglende informasjon</h3>
+                      <p>
+                        På grunn av systemprompten har modellen fått klar beskjed om å ikke bruke informasjon som ikke kommer fra RAG, og ikke finne på informasjon. 
+                        Vi ser derfor at spørsmålet om hvordan å tjene penger utløser fallback-svaret.
+                      </p>
+                      <img src="/assets/bilder/testing correct info/harikkesvar.webp" alt="Eksempel på fallback-svar">
+                      <br>
+                  </section>
+
+                  <section>
+                      <h2>Parameter testing</h2>
+                      <p>For å forstå hvordan modellen oppfører seg når man forandrer betingelser, eksprimenterte jeg litt med forskjellige parametere.</p>
+
+                      <h3>Første eksperiment: Temperatur alene</h3>
+                      <p>Det første eksprimentet var på temperatur alene. Det første bildet viser en temperatur på 0.1, der svaret er veldig rett fram og kort. I det andre bildet, er det en litt større variasjon og flere ord.</p>
+                      <img src="/assets/bilder/temperatur/0.1temperature.png" alt="bilde">
+                      <img src="/assets/bilder/temperatur/2temperature.png" alt="bilde">
+                      <br>
+
+                      <h3>Andre eksperiment: Justering av Top-K, Top-P og temperatur</h3>
+                      <h4>Lav variasjon: Temperatur (0.1), Top-K (5), Top-P default</h4>
+                      <p>Modellen svarte som forventet og var konservativ. Teksten var også presis, men det gjorde at den manglet detaljer og variasjon. Dette hadde bare fungert bra hvis jeg trengte et kort og rett fram svar.</p>
+                      <img src="/assets/bilder/parameter/temp01 topk5, topp default question 2.png" alt="lav variasjon">
+                      <br>
+                      <h4>Høy variasjon: Temperatur (2), Top-K (100), Top-P (1)</h4>
+                      <p>Modellen laget et mye lengre svar som var alt for variert og uforutsigbart. Svaret fikk mye unøyaktigheter og feilinformasjon, og skrev mye rart. Høy variasjon er mest nyttig til brainstorming og ikke spørsmål som dette.</p>
+                      <img src="/assets/bilder/parameter/top_k100  temp2 topp 1.png" alt="bilde">
+                      <br>
+
+                      <h3>Tredje eksperiment: Maxtoken og temperatur</h3>
+                      <p>Dette er den tredje delen av eksprimentet, hvor jeg forandret maxtoken og temperatur. Målet var å se hvordan det påvirket svarene. Jeg kjørte 3 tester:</p>
+
+                      <h4>Lav maxtoken (50) og lav temperatur (0.2)</h4>
+                      <p>Det først eksemplet er maxtoken på 50 og temperatur på 0.2. Vi ser at svaret ble kuttet av før den i det hele tatt fikk skrevet det jeg spurte om. Lav maxtoken vil si at sannsynligheten for at dette skjer er ganske stor. Lav temperatur vil også si at modellen har veldig lite variasjon og ikke er så veldig kreativ.</p>
+                      <img src="/assets/bilder/max toxen/maxtoken 50, 0.2 temp.png" alt="bilde">
+                      <br>
+
+                      <h4>Moderat maxtoken (400) og middels temperatur (0.8)</h4>
+                      <p>Med maxtoken på 400 og temperatur på 0.8, vil det fortsatt være korte svar. Forskjellen er ganske stor fra det første forsøket, og svaret ble veldig mye lengre. Det ble også en større variasjon i språket.</p>
+                      <img src="/assets/bilder/max toxen/maxtoken 400, 0.8 temp.png" alt="bilde">
+                      <br>
+
+                      <h4>Høy maxtoken (1714) og høy temperatur (0.9)</h4>
+                      <p>Med maxtoken på 1714 og temperatur på 0.9 fikk jeg et veldig detaljert svar med mye kreativitet. Det var språklig variasjon og er den teksten som er minst konsistent ut av de 3. Med høy maxtoken som dette, er det en økt risiko for avsporing eller unødvendig informasjon (som vi ser i bilder (gi eksempel)).</p>
+                      <img src="/assets/bilder/max toxen/maxtoken 1714, 0.9 temp.png" alt="bilde">
+                      <br>
+                  </section>
+              </section>
         </article>
     </main>
 </body>
