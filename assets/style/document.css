@@ -4,7 +4,7 @@ body {
 
 .content {
   flex: 1;
-  padding: 3rem 4rem;
+  padding: 3rem 1rem;
   background: #ffffff;
   display: flex;
   flex-direction: column;
